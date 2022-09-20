@@ -9,9 +9,10 @@ program
   .version("1.0.0")
   .argument("<imgpath>", "dest image location")
   .option("-m, --mb <number>", "image size in mb", 10)
+  .option("-r, --rsvdsec <number>", "number of reserved sectors", 34)
   .parse();
 
 const options = program.opts();
 const args = program.args;
 
-FAT32MK({ hdPath: args[0], sizeMB: options.mb });
+FAT32MK({ hdPath: args[0], sizeMB: options.mb, rsvdSecCnt: options.rsvdsec });

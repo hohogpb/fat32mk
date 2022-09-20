@@ -519,10 +519,10 @@ class FAT32BPB {
    * field in the FAT12/FAT16 section earlier. This field has nothing to
    * do with FAT type determination..
    */
-  get BS_FilSysType() {
+  get BS_FileSysType() {
     return this.buf.subarray(82, 8).toString();
   }
-  set BS_FilSysType(v) {
+  set BS_FileSysType(v) {
     for (let i = 0; i < 8; i++) {
       const ch = (v[i] || " ").charCodeAt(0);
       this.buf.writeUInt8(ch, 82 + i);
